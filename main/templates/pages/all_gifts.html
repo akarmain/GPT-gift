@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-3">
+  <div class="row">
+    <!-- Вкладки с праздниками -->
+    <div class="col-12 col-md-3 order-md-1 mb-3">
+      <div class="list-group" id="list-tab" role="tablist">
+        {% for holiday in gifts_by_holiday %}
+          <a class="list-group-item list-group-item-action {% if forloop.first %}active{% endif %}"
+             id="list-{{ holiday.id }}-list" data-bs-toggle="list" href="#list-{{ holiday.id }}" role="tab"
+             aria-controls="list-{{ holiday.id }}">{{ holiday }}</a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Контент с подарками -->
+    <div class="col-12 col-md-9 order-md-2">
+      <div class="tab-content" id="nav-tabContent">
+        {% for holiday in gifts_by_holiday %}
+          <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="list-{{ holiday.id }}"
+               role="tabpanel" aria-labelledby="list-{{ holiday.id }}-list">
+            <div class="row">
+
+              {% for gift in holiday.holiday_relate.all %}
+                <div class="col-md-4 col-sm-6 mb-3">
+                  <div class="card h-100 position-relative">
+                    <span class="badge rounded-pill text-bg-info position-absolute top-0 end-0 mt-2 me-2">{{ gift.store }}</span>
+                    <img src="{{ gift.image.url }}" class="card-img-top" alt="{{ gift.name }}">
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">{{ gift.name }}</h5>
+                      <p class="card-text flex-grow-1">{{ gift.description }}</p>
+                      <a href="{{ gift.link }}" target="_blank" class="btn btn-primary mt-auto">Купить</a>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

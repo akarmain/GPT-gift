@@ -1,0 +1,184 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+  <main>
+    <div id="heroBlock" class="hero-block">
+      <div class="description">
+        <h1 class="title">Подбери идеальный подарок, через <span>ИИ</span></h1>
+        <p>Подбери идеальный подарок, благодаря ИИ<br/></p>
+        <a href="my_polls" target="_blank">
+          <button class="button primary">Сделать анкету</button>
+        </a>
+        <div class="bots">
+          <div class="images">
+            <img src="{% static 'assets/hero-block/0.png' %}" alt="">
+            <img src="{% static 'assets/hero-block/1.png' %}" alt="">
+            <img src="{% static 'assets/hero-block/2.png' %}" alt="">
+            <img src="{% static 'assets/hero-block/3.png' %}" alt="">
+            <img src="{% static 'assets/hero-block/4.png' %}" alt="">
+          </div>
+          <b>Уже используют</b>
+        </div>
+      </div>
+      <img class='main_img' src="{% static 'assets/hero-block/img.png' %}" alt="">
+    </div>
+
+    <!-- Use Cases Block -->
+    <div id="useCases" class="use-cases">
+      <div class="container">
+        <div id="carousel">
+          <div class="items">
+            <div id="case1" class="item">
+              <div class="image">
+                <img src="{% static 'assets/use-cases/use-cases-1.png' %}" alt="">
+              </div>
+              <div class="description">
+                <h2><br/>Почему выбирают <span><br class="br-unset"/>Нас</span></h2>
+                <p>Наша продвинутая система анализа ответов, основанная на ИИ, поможет подобрать вам подходящие подарки
+                </p>
+                <br>
+                <br>
+              </div>
+            </div>
+            <div id="case2" class="item">
+              <div class="image">
+                <img src="{% static 'assets/use-cases/use-cases-2.png' %}" alt="">
+              </div>
+              <div class="description">
+                <h2><span><br/>Огромны<br class="br-unset"/></span> ассортимент подарков</h2>
+                <p> Наш сайт предлагает более 100 уникальных подарков. Найдите идеальный сюрприз для друзей и близких
+                </p>
+              </div>
+            </div>
+          </div>
+          <div id="paginator" class="slider">
+            <form id="#form">
+              <span id="slideTextCurrent">01</span>
+              <input id="slide1" type="radio" name="slide" value="0" checked/>
+              <label for="slide1"></label>
+              <input id="slide2" type="radio" name="slide" value="1"/>
+              <label for="slide2"></label>
+              <span id="slideTextTotal"></span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Quick start Block -->
+    <div id="quickStart" class="quick-start">
+      <div class="container">
+        <h2>Как <span>сделать</span> опрос?</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="description">
+              <h3>Авторизуйся</h3>
+              <ul class="ul-numbers">
+                <li>Создай себе <a href="#" target="_blank" class="link">аккаунт</a> и зарегистрируйся</li>
+                <li>Придумай <a href="#" class="link">пароль</a></li>
+                <li>Нажимай на <a href="#" class="link">Сделать анкету</a></li>
+              </ul>
+            </div>
+            <div class="image">
+              <img src="{% static 'assets/quick-start/1.png' %}" alt=""/>
+            </div>
+          </div>
+          <div class="step">
+            <div class="image">
+              <img src="{% static 'assets/quick-start/2.png' %}" alt=""/>
+            </div>
+            <div class="description">
+              <h3>Создай анкету</h3>
+              <p>Разнообразие в <br/>создании</p>
+              <ul class="ul-disc">
+                <li><a href="#" class="link">множество выборов</a></li>
+                <li><a href="#" class="link">единичный выбор</a></li>
+                <li><a href="#" class="link">текстовые поля</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="step">
+            <div class="description">
+              <h3>Получим список подарков </h3>
+              <p>Вам будут представлены несколько подарков,<br/>которые система подберет под ваши ответы:</p>
+              <ul class="ul-disc">
+                <li>Выберите подарок, который вам <a href="#" class="link">понравился</a></li>
+                <li>При выборе итогового подарка, вас перекинет на <a href="#" class="link">сайт</a> с вашим подарком
+                </li>
+              </ul>
+            </div>
+            <div class="image">
+              <img src="{% static 'assets/quick-start/3.png' %}" alt=""/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Над сайтом работали-->
+
+    <div class="community" id='developers'>
+      <div class="container">
+        <div class="description">
+          <h2>Над сайтом работали</h2>
+        </div>
+        <div class="libraries">
+          <div class="library">
+            <img src="{% static 'assets/developers/1.png' %}" alt="Анастасия Карачун">
+            <span>Анастасия Карачун</span>
+          </div>
+          <div class="library">
+            <img src="{% static 'assets/developers/2.png' %}" alt="Андрей Кармаев">
+            <span>Андрей Кармаев</span>
+          </div>
+          <div class="library">
+            <img src="{% static 'assets/developers/3.png' %}" alt="Белов Егор">
+            <span>Белов Егор</span>
+          </div>
+          <div class="library">
+            <img src="{% static 'assets/developers/4.png' %}" alt="Кулагин Святослав">
+            <span>Кулагин Святослав</span>
+          </div>
+          <div class="library">
+            <img src="{% static 'assets/developers/5.png' %}" alt="Лиза Бугаева">
+            <span>Лиза Бугаева</span>
+          </div>
+
+        </div>
+        <div class="libraries">
+          <div class="library">
+            <img src="{% static 'assets/developers/6.png' %}" alt="Макаров Дмитрий">
+            <span>Макаров Дмитрий</span>
+          </div>
+
+          <div class="library">
+            <img src="{% static 'assets/developers/7.png' %}" alt="Тимошенко Никита">
+            <span>Тимошенко Никита</span>
+          </div>
+
+          <div class="library">
+            <img src="{% static 'assets/developers/8.png' %}" alt="Цой Анна">
+            <span>Цой Анна</span>
+          </div>
+
+          <div class="library">
+            <img src="{% static 'assets/developers/9.png' %}" alt="Чернов Иван">
+            <span>Чернов Иван</span>
+          </div>
+
+          <div class="library">
+            <img src="{% static 'assets/developers/10.png' %}" alt="Юрий Федоров">
+            <span>Юрий Федоров</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script defer src="{% static 'scripts/main.js' %}"></script>
+  <script defer src="{% static 'scripts/slider.js' %}"></script>
+  <script defer src="{% static 'scripts/animations.js' %}"></script>
+{% endblock %}
+

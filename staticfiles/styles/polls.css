@@ -1,0 +1,158 @@
+/* Общие стили контейнеров */
+.poll-container {
+    margin: 20px auto;
+    max-width: 600px;
+    width: 150%;
+}
+
+.results-container {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+}
+
+.question_div {
+    margin: 10px;
+}
+
+.question-title,
+.poll-description,
+.poll-title {
+    margin-bottom: 20px;
+}
+
+.question-title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+}
+
+.question_title,
+.answer_type {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    display: block;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+.question_title {
+    background-color: #fff;
+}
+
+.answer_input,
+.result-item img,
+.answer_type {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+}
+
+.answer_input {
+    margin-bottom: 5px;
+    width: 90%;
+}
+
+.answer-control {
+    width: 250px;
+}
+
+/* Стили результатов опроса */
+.result-item,
+hr {
+    margin-bottom: 20px;
+}
+
+.result-item {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+
+.result-item img {
+    max-height: 200px;
+    width: auto;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.result-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.btn_in_card,
+.result-description,
+.result-store,
+.add_answer {
+    margin-bottom: 5px;
+}
+
+.add_answer {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: .25rem;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+}
+
+.result-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Адаптивные и специфические настройки */
+@media (max-width: 767.98px) {
+    .btn-custom {
+        margin: 4px;
+    }
+
+    #poll_share_link,
+    #card-body,
+    .poll-container {
+        width: 100%;
+    }
+
+    .card-img-top {
+        height: 150px;
+    }
+}
+
+.card {
+    height: 100%;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn_in_card {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.new_question{
+  padding-bottom: 4px;
+}
+
+.card_in_polls{
+  width: auto;
+  display: block;
+  margin: auto
+}

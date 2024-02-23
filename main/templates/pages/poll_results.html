@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container mt-3 text-center">
+    <h1 class="m-4">Результаты опроса: {{ poll.title }}</h1>
+    {% if has_results %}
+      <div class="row">
+        {% for obj in poll.poll_results_relate.all %}
+          {% for result in obj.result.all %}
+            <div class="col-md-4 col-sm-6 mb-3">
+              <div class="card h-100 position-relative">
+                <span
+                  class="badge rounded-pill text-bg-info position-absolute top-0 end-0 mt-2 me-2">{{ result.store }}</span>
+                <img src="{{ result.image.url }}" class="card-img-top img-fluid rounded" alt="{{ result.name }}">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">{{ result.name }}</h5>
+                  <p class="card-text flex-grow-1">{{ result.description }}</p>
+                  <a href="{{ result.link }}" target="_blank" class="btn btn-primary mt-auto">Купить</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+
+    {% else %}
+      <div class="alert alert-warning" role="alert">
+        <h4>Этот опрос ещё не пройден!</h4>
+      </div>
+    {% endif %}
+  </div>
+
+
+{% endblock %}

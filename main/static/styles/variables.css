@@ -1,0 +1,88 @@
+:root {
+  --deep-blue: rgba(41, 126, 226, 1);
+  --deep-darkgray: rgba(17, 17, 17, 0.8);
+  --deep-gray: rgba(17, 17, 17, 0.4);
+  --text-light: #FFFFFF;
+  --text-dark: #0D0D12;
+  --text-blue: #41A4DF;
+  --dark-blue: #232328;
+  --bg-light: #F7F9FB;
+  --bg-app: #FFFFFF;
+
+  /* button */
+  --bg-button-primary: #41A4DF;
+  --bg-button-primary__hover: #297EE2;
+
+  --bg-button-secondary: rgba(41, 126, 226, 0.12);
+  --bg-button-secondary__hover: rgba(65, 164, 223, 0.16);
+
+  --border-button-dark: rgba(255, 255, 255, .6);
+  --border-button-dark__hover: rgba(255, 255, 255, 1);
+
+  /* button icon theme */
+  --icon-btn: url(../assets/mode/sun.svg) no-repeat center;
+  --icon-btn__mobile: url(../assets/mode/sun__mobile.svg) no-repeat center;
+
+  /* button click animation */
+  --bg-btn: rgba(217, 228, 242, .5);
+  --bg-btn__clicked: linear-gradient(240deg, rgba(41, 126, 226, 0.18) 3.57%, rgba(24, 97, 182, 0.18) 86.24%);
+  --cursor-image: url(../assets/features/commission/cursor.svg) no-repeat;
+
+  /* quick start backgrounds */
+  --linear-bg-purple: linear-gradient(297deg, #8EC5FC 8.25%, #E0C3FC 91.76%);
+  --linear-bg-orange: linear-gradient(207deg, #D99FFC 6.91%, #FFE8D2 92.45%);
+  --linear-bg-blue: linear-gradient(0deg, #C2E9FB -16.6%, #A1C4FD 106.15%);
+
+  /* crypto api */
+  --gradient-bg-blue: linear-gradient(233deg, #9FCCFA -20.48%, #0974F1 97.38%);
+
+  /* phone down */
+  --phone-down: url(../assets/features/verification/phone-down.webp);
+  --bg-message: linear-gradient(98deg, #e8f2f9 15.04%, #e8f2f9 52.22%, #e9f1fa 90.93%);
+
+  /* steps */
+  --bg-step-number: linear-gradient(220deg, #010417 10.26%, #2b333f 84.25%);
+  --bs-step-number: 0 0 8px 0 rgba(182, 186, 191, 0.04);
+  --text-step-number: #FFFFFF;
+}
+
+[dark] {
+  --deep-blue: rgba(41, 126, 226, 1);
+  --deep-darkgray: rgba(255, 255, 255, 0.8); /**/
+  --deep-gray: rgba(255, 255, 255, 0.6);
+  --text-light: #FFFFFF; /**/
+  --text-dark: #FFFFFF; /**/
+  --text-blue: #41A4DF;
+  --dark-blue: #18181D; /**/
+  --bg-light: #18181D; /**/
+  --bg-app: #0D0D12; /**/
+
+  /* button */
+  --bg-button-primary: #41A4DF;
+  --bg-button-primary__hover: #297EE2;
+
+  --bg-button-secondary: rgba(41, 126, 226, 0.12);
+  --bg-button-secondary__hover: rgba(65, 164, 223, 0.16);
+
+  --border-button-dark: rgba(255, 255, 255, .6);
+  --border-button-dark__hover: rgba(255, 255, 255, 1);
+
+  /* button icon theme */
+  --icon-btn: url(../assets/mode/moon.svg) no-repeat center;
+  --icon-btn__mobile: url(../assets/mode/moon__mobile.svg) no-repeat center;
+
+  /* button click animation */
+  --bg-btn: linear-gradient(233deg, #9FCCFA -20.48%, #0974F1 97.38%);
+  --bg-btn__clicked: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+    linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
+  --cursor-image: url(../assets/features/commission/cursor__dark.svg) no-repeat;
+
+  /* phone down */
+  --phone-down: url(../assets/features/verification/phone-down__dark.webp);
+  --bg-message: #222222;
+
+  /* steps */
+  --bg-step-number: #FFFFFF;
+  --bs-step-number: 0px 0px 8px 0px rgba(182, 186, 191, 0.04), 0px 2px 3px 0px rgba(0, 0, 0, 0.02);
+  --text-step-number: transporent;
+}

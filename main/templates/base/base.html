@@ -1,0 +1,43 @@
+{% load django_bootstrap5 %}
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GPT Gift</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" defer integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" defer integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="icon" href="{% static 'assets/favicon.ico' %}">
+  <link rel="stylesheet" href="{% static 'styles/variables.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/components/button.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/components/link.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/components/slider.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/polls.css' %}">
+
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+<header>
+  {% include 'base/menu.html' %}
+</header>
+
+<main>
+  {% block content %} {% endblock %}
+</main>
+
+<div class="m-3">
+  {% include 'base/footer.html' %}
+</div>
+
+
+{% block extra_js %} {% endblock %}
+</body>
+
+
+</html>

@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+  <div class="containerAllInput">
+    <div class="FormControlInput">
+      <h1 class="mb-3">Введите свои данные</h1>
+      <input type="email" class="form-control mb-3" id="exampleFormControlInput1" placeholder="mail@example.com">
+      <input type="password" class="form-control" id="inputPassword" placeholder="password12345">
+
+      <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}  
+
+        {% for item in form %}
+          <label>{{ item.label }}:</label><br>
+          {{ item }}
+        {% endfor %}
+
+        <input type="submit" class="btn btn-primary mt-2" value="Войти">
+      </form>
+
+    </div>
+
+
+  </div>
+  {% if form.errors %}
+    {{ form.errors }}
+  {% endif %}
+  </div>
+{% endblock %}

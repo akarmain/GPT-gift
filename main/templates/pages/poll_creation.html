@@ -1,0 +1,85 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="poll-container card border-secondary mb-3">
+    <form name="FORM" id='main_form' method="POST" enctype="multipart/form-data" class="form-group">
+      {% csrf_token %}
+      <div class="card-header bg-transparent border-secondary">
+
+
+        {% if  poll.image %}
+           <img src="{{ poll.image }}" class="card-img-top mb-3 img-fluid rounded card_in_polls" alt="Добавьте изображение опроса">
+        {% else %}
+          <img src="{% static 'assets/card_images/1.jpg' %}"  class="card-img-top mb-3 img-fluid rounded card_in_polls" alt="Default image">
+        {% endif %}
+
+        <div class="form-floating mb-3">
+          <input type="text" name='poll_title' id="poll_title" value="{{ poll.title }}" class="form-control"
+                 placeholder="Название опроса">
+          <label for="poll_title">Название опроса</label>
+        </div>
+        <div class="form-floating mb-3">
+        <textarea name="poll_description" id="poll_description" class="form-control"
+                  placeholder="Описание опроса">{{ poll.description }}</textarea>
+          <label for="poll_description">Описание опроса</label>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="hidden" name="id" value="{{ poll.id }}">
+          <input type="file" id="image" name="image" src="{{ poll.image }}" accept="image/png, image/gif, image/jpeg"
+                 class="form-control-file "/>
+        </div>
+
+      </div>
+      <div class="card-body text-secondary">
+        <div id="display">
+
+          {% for question in poll.poll_relate.all %}
+            <div class="new_question">
+              <input type="hidden" id="answer_type_input" value="{{ question.type }}">
+              <input type="hidden" id="question_id" value="{{ question.id }}">
+              <input class="question_title form-control" value="{{ question.title }}">
+
+              <ul class="list-unstyled">
+                {% for answer in question.question_relate.all %}
+                  <li><input class="answer_input form-control" value="{{ answer }}"></li>
+                {% endfor %}
+              </ul>
+            </div>
+
+          {% endfor %}
+        </div>
+        <div class="card-footer bg-transparent border-secondary">
+          <div class="row row-cols-1 row-cols-md-2 g-1 mt-3">
+            <div class="col d-grid">
+              <div id="add_question_button" class="btn btn-info mb-2">Добавить вопрос <i class="bi bi-plus"></i></div>
+            </div>
+            <div class="col d-grid">
+              <input class="btn btn-primary mb-2" id="send" type="submit" value="Сохранить">
+            </div>
+            <div class="col d-grid">
+              <div id="copy_link_btn" class="btn btn-success mb-2">Скопировать ссылку <i class="bi bi-copy"></i></div>
+            </div>
+            <div class="col d-grid">
+              <a href="/delete_poll/{{ poll.id }}" class="btn btn-danger" style="height: 40px">Удалить <i
+                class="bi bi-trash3"></i></a>
+            </div>
+          </div>
+          <div style="opacity: 0; height: 0; overflow: hidden;" id="add_question_button" class="btn btn-info">Добавить
+            вопрос <i class="bi bi-plus"></i></div>
+          <input style="opacity: 0; height: 0; overflow: hidden;" class="btn btn-primary" id="send" type="submit"
+                 value="Сохранить">
+          <input style="opacity: 0; height: 0; overflow: hidden;" id="DATA" name="DATA" type="hidden">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="poll-container">
+    <input type=hidden id="poll_link_slug" readonly value="{{ poll.slug }}" class="form-control">
+  </div>
+
+  <script src="{% static 'scripts/poll_creation.js' %}"></script>
+
+{% endblock %}

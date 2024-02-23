@@ -1,0 +1,107 @@
+{% load static %}
+
+<style>
+  .button-group a, .button-group span {
+    margin-right: -4px; /* Уменьшить расстояние между кнопками */
+    border-radius: 0; /* Убрать закругление углов */
+  }
+
+  .button-group a:first-child, .button-group span:first-child {
+    border-top-left-radius: 0.25rem; /* Восстановить закругление для левой верхней части первой кнопки */
+    border-bottom-left-radius: 0.25rem; /* Восстановить закругление для левой нижней части первой кнопки */
+  }
+
+  .button-group a:last-child {
+    border-top-right-radius: 0.25rem; /* Восстановить закругление для правой верхней части последней кнопки */
+    border-bottom-right-radius: 0.25rem; /* Восстановить закругление для правой нижней части последней кнопки */
+  }
+
+  /* Медиа-запрос для мобильных устройств */
+  @media (max-width: 768px) {
+    .button-group {
+      display: none; /* Скрыть группу кнопок на маленьких экранах */
+    }
+
+    .dropdown-button-group {
+      display: block; /* Показать dropdown на маленьких экранах */
+    }
+  }
+
+  /* Стили для больших экранов */
+  @media (min-width: 769px) {
+    .dropdown-button-group {
+      display: none; /* Скрыть dropdown на больших экранах */
+    }
+  }
+
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Минимальная высота контейнера равна высоте видимой части экрана */
+  }
+
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+
+<div class="logo">
+  <a href="{% url 'index' %}">
+    <img src="{% static 'assets/favicon.ico' %}" alt="gpt-gift logo">
+  </a>
+</div>
+
+<nav class="bullets">
+  <ul class="navigation-links">
+    <li><a href="/my_polls">Мои опросы</a></li>
+    <li><a href="/all_gifts">Все подарки</a></li>
+  </ul>
+</nav>
+
+<!-- Обычные кнопки для больших экранов -->
+<div class="button-group">
+  {% if request.user.is_authenticated %}
+    <span class="btn btn-primary">{{ user.username }}</span>
+    <a class="btn btn-primary" href="{% url 'logout' %}">Выйти <i class="bi bi-door-open"></i></a>
+  {% else %}
+    <a class="btn btn-primary" href="{% url 'register' %}">Регистрация</a>
+    <a class="btn btn-primary" href="{% url 'login' %}">Войти</a>
+  {% endif %}
+</div>
+
+<!-- Dropdown для мобильных устройств -->
+{#<div class="dropdown-button-group">#}
+{#  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#    Меню#}
+{#  </button>#}
+{#  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">#}
+{#    {% if request.user.is_authenticated %}#}
+{#      <span class="dropdown-item">{{ user.username }}</span>#}
+{#      <a class="dropdown-item" href="{% url 'logout' %}">Выйти</a>#}
+{#    {% else %}#}
+{#      <a class="dropdown-item" href="{% url 'register' %}">Регистрация</a>#}
+{#      <a class="dropdown-item" href="{% url 'login' %}">Войти</a>#}
+{#    {% endif %}#}
+{#  </div>#}
+{#</div>#}
+
+<div class="dropdown dropdown-button-group">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+          aria-expanded="false">
+    Меню
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/my_polls">Мои опросы</a>
+    <a class="dropdown-item" href="/all_gifts">Все подарки</a>
+    <br>
+    {% if request.user.is_authenticated %}
+      <span class="dropdown-item">{{ user.username }}</span>
+      <a class="dropdown-item" href="{% url 'logout' %}">Выйти <i class="bi bi-door-open"></i></a>
+    {% else %}
+      <a class="dropdown-item" href="{% url 'register' %}">Регистрация</a>
+      <a class="dropdown-item" href="{% url 'login' %}">Войти</a>
+    {% endif %}
+  </ul>
+</div>

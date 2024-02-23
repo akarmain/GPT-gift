@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% block content %}
+  <div class="center-container">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Вход</h5>
+        <form method="post">
+          {% csrf_token %}
+          {% for f in form %}
+            <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+            <div class="form-error">{{ f.errors }}</div>
+          {% endfor %}
+          {% if form.non_field_errors %}
+            <div class="alert alert-warning" role="alert">
+              {{ form.non_field_errors }}
+            </div>
+          {% endif %}
+          <button class="btn btn-primary" type="submit">Войти</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="poll-container card border-secondary mb-3">
+
+    {% if  poll.image %}
+      <img src="{{ poll.image }}" class="card-img-top mb-3 img-fluid rounded card_in_polls"
+           alt="Добавьте изображение опроса">
+    {% else %}
+      <img src="{% static 'assets/card_images/1.jpg' %}" class="card-img-top mb-3 img-fluid rounded card_in_polls"
+           alt="Default image">
+    {% endif %}
+
+    <h1 align="center">
+      <div name='title'>{{ poll.title }}</div>
+    </h1>
+    <div class="text-center  fs-5">{{ poll.description }}</div>
+    <form id='main_form' method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="input-group m-2 p-4">
+        <span class="input-group-text">Имя и фамилия</span>
+        <input type="text" name="user_name" aria-label="Имя" class="form-control">
+        <input type="text" name="user_surname" aria-label="Фамилия" class="form-control">
+      </div>
+      <div class="pull">
+        <div id="display">
+          <input type="hidden" name="id" value="{{ poll.id }}">
+          {% for question in poll.poll_relate.all %}
+            <div class="question_div">
+              <h4>
+                <input type="hidden" id="answer_type_input" value="{{ question.type }}">
+                <input id="question_id" type="hidden" value="{{ question.id }}">
+                <div name="question">{{ question.title }}</div>
+              </h4>
+              <ul>
+                {% for answer in question.question_relate.all %}
+                  <div class="answer_div">
+                    {{ answer }}
+                    <input type="hidden" id="answer_id" value="{{ answer.id }}">
+                  </div>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endfor %}
+        </div>
+        <input class="btn btn-primary m-2" type="submit" value="Отправить">
+      </div>
+    </form>
+  </div>
+  <script src="{% static 'scripts/poll_completion.js' %}"></script>
+{% endblock %}

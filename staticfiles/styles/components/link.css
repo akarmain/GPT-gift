@@ -1,0 +1,15 @@
+a {
+  color: unset;
+  text-decoration: none;
+  transition: .25s;
+
+  &.link {
+    text-decoration: none;
+    color: var(--text-blue);
+  }
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--deep-blue);
+  }
+}

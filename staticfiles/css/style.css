@@ -1,0 +1,31 @@
+.red-block {
+  background-color: red;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+}
+
+.FormControlInput {
+  width: 300px;
+  margin: 16px;
+}
+
+.containerAllInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

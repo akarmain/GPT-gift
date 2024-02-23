@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+  <style>
+</style>
+
+  <div class="container">
+    <div class="row justify-content-center mt-3">
+      <!-- Карточка для создания нового опроса -->
+      <div class="col-lg-3 col-md-6 col-12 mb-3">
+        <div class="card mx-auto">
+          <img src="{% static 'assets/card_images/0.jpg' %}" class="card-img-top p-1 rounded" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">Новый опрос</h5>
+            <p class="card-text">⠀</p>
+            <a href="/new_poll/" class="btn btn-success btn_in_card" style="margin-top: 83px;">Создать</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточки существующих опросов -->
+      {% for obj in all_polls %}
+        <div class="col-lg-3 col-md-6 col-12 mb-3">
+          <div class="card mx-auto">
+            {% if obj.image %}
+              <img src="{{ obj.image }}" class="card-img-top p-1 rounded" alt="{{ obj.title }}">
+            {% else %}
+              <img src="{% static 'assets/card_images/1.jpg' %}" class="card-img-top p-1 rounded" alt="Default image">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">
+                {% if obj.title %}
+                  {{ obj.title }}
+                {% else %}
+                  Опрос без имени
+                {% endif %}
+              </h5>
+              <p class="card-text">{{ obj.description }}</p>
+              <p class="card-text">{{ obj.time_created }}</p>
+              <a class="btn btn-primary btn_in_card" style="margin: auto" href="/poll_creation/{{ obj.id }}">Редактировать</a>
+              <a class="btn btn-success btn_in_card" href="/poll_results/{{ obj.id }}">Смотреть результаты</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
